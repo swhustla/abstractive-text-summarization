@@ -5,11 +5,18 @@ description = ""
 authors = ["swhustla <fdkelly@gmail.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = ">=3.9,<3.11"
 fastai = "^2.5.3"
 tensorboard-pytorch = "^0.7.1"
 jupyterlab = "^3.2.8"
 torchtext = "^0.11.2"
+graphviz = "^0.19.1"
+icecream = "^2.1.2"
+networkx = "^2.6.3"
+Pygments = "^2.11.2"
+scipy = "^1.8.0"
+spacy = "^3.2.2"
+pytextrank = "^3.2.2"
 
 [tool.poetry.dev-dependencies]
 
