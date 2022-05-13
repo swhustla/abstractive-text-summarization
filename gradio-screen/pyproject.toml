@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "gradio-screen"
+version = "0.1.0"
+description = "screen to showcase output of text summarization"
+authors = ["Your Name <you@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<3.11"
+gradio = "pytextrank"
+Jinja2 = "^3.0.3"
+pytextrank = "^3.2.3"
+huggingface = "^0.0.1"
+transformers = {extras = ["pytorch"], version = "^4.17.0"}
+torch = "^1.11.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "black"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
