@@ -1,7 +1,9 @@
-.vector_cache/
-.gitignore/
-.ipynb_checkpoints/
-abstractive-text-summarization-Copy1.ipynb
-data/*
-.DS_Store
-data/.DS_Store
+flagged
+*.pyc
+__pycache__
+
+.idea
+
+.ipynb_checkpoints
+data
+.vector_cache
