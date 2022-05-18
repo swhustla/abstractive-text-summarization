@@ -5,7 +5,8 @@ model = EncoderDecoderModel.from_pretrained("patrickvonplaten/longformer2roberta
 tokenizer = LongformerTokenizer.from_pretrained("allenai/longformer-base-4096")
 
 
-def summarize(text):
+def summarize_abstractive(text, summary_lines=4):
+    _ = summary_lines
     input_ids = tokenizer(text, return_tensors="pt").input_ids
     output_ids = model.generate(input_ids)
     # Get the summary from the output tokens
