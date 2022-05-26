@@ -1,17 +1,31 @@
 import gradio as gr
 from gradio import inputs
-# from src.text_rank_summarizer import summarize
-from src.transformer_summarization import summarize
+from src.text_rank_summarizer import summarize as summarize_extractive
+from src.transformer_summarization import summarize_abstractive
 
-long_text_input = inputs.Textbox(lines=200, label='Long Text')
-summary_lines = inputs.Number(default=4, label='Summary Lines')
+interface_abstractive = gr.Interface(
+    fn=summarize_abstractive,
+    inputs=[gr.inputs.Textbox(), inputs.Number()],
+    outputs=gr.outputs.Textbox(label="Summary by Abstractive Method/Encoder-Decoder"),
+)
 
-interface = gr.Interface(fn=summarize,
-                         inputs=[long_text_input],
-                         outputs=['text'],
-                         live=False,
-                         layout='horizontal',
-                         css='css/index.css')
+interface_extractive = gr.Interface(
+    fn=summarize_extractive,
+    inputs=[gr.inputs.Textbox(), inputs.Number()],
+    outputs=gr.outputs.Textbox(label="Summary by Extractive Method/pyTextRank"),
+)
 
-if __name__ == '__main__':
-    app, local_url, share_url = interface.launch()
+interfaces = gr.Parallel(
+    interface_abstractive,
+    interface_extractive,
+    title="Compare 2 Text Summarizers",
+    inputs=[
+        gr.inputs.Textbox(lines=200, label="Paste some English text here"),
+        inputs.Number(default=4, label="Number of summary lines (optional)"),
+    ],
+    live=False,
+)
+
+
+if __name__ == "__main__":
+    app, local_url, share_url = interfaces.launch()

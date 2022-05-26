@@ -60,7 +60,7 @@ def _rank_to_summary(sent_rank, doc, summary_lines):
     return ' '.join(summary)
 
 
-def summarize(text, summary_lines):
+def summarize(text, summary_lines=4):
     doc = nlp(text)
     phrase_vector, sent_bounds = _phrase_vector(doc)
     sent_rank  = sorted(_sent_rank(phrase_vector, sent_bounds).items(), key=itemgetter(1))
