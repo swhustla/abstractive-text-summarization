@@ -12,6 +12,7 @@ pytextrank = "^3.2.3"
 huggingface = "^0.0.1"
 transformers = {extras = ["pytorch"], version = "^4.17.0"}
 torch = "^1.11.0"
+jupyterlab = "^3.4.3"
 
 [tool.poetry.dev-dependencies]
 pytest = "black"
